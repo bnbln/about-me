@@ -12,13 +12,13 @@ export const IndexPageTemplate = ({
   heading,
   subheading,
   mainpitch,
-  description,
-  intro,
   connectcta,
   connecttitle,
   connectsubtitle,
   connectimage,
-  social
+  social,
+  name,
+  description
 }) => (
   <div>
 
@@ -112,10 +112,8 @@ export const IndexPageTemplate = ({
         textTransform: "uppercase",
         color: "#1E90FF",
         padding: "24px 0px"
-      }} >{mainpitch.title}</h1>
-      {mainpitch.skills ? 
-      mainpitch.skills.map((item,i)=>
-      <h2 key={"skill"+i} style={{
+      }} >{heading}</h1>
+      <h2  style={{
         fontStyle: "normal",
         fontWeight: 900,
         fontSize: 100,
@@ -123,9 +121,8 @@ export const IndexPageTemplate = ({
         textTransform: "uppercase",
         color: "rgba(255, 99, 72, 0.5)",
         padding: "24px 0px"
-      }}>{item}</h2>
-      )
-      : null}
+      }}>{name}</h2>
+      <p>{description}</p>
     </div>
 
      <div className="hero" id="contact" style={{
@@ -166,16 +163,15 @@ IndexPageTemplate.propTypes = {
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
   description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
+
   connectcta: PropTypes.string,
   connecttitle: PropTypes.string,
   connectsubtitle: PropTypes.string,
   connectimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   social: PropTypes.shape({
     links:PropTypes.array
-  })
+  }),
+  name: PropTypes.string
 }
 
 const IndexPage = ({ data }) => {
@@ -186,16 +182,16 @@ const IndexPage = ({ data }) => {
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
-        heading={frontmatter.heading}
         subheading={frontmatter.subheading}
         mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
         connectcta={frontmatter.connectcta}
         connecttitle={frontmatter.connecttitle}
         connectsubtitle={frontmatter.connectsubtitle}
         connectimage={frontmatter.connectimage}
         social={frontmatter.social}
+        heading={frontmatter.heading}
+        name={frontmatter.name}
+        description={frontmatter.description}
       />
     </Layout>
   )
@@ -223,7 +219,6 @@ export const pageQuery = graphql`
             }
           }
         }
-        heading
         subheading
         mainpitch {
           title
@@ -253,21 +248,9 @@ export const pageQuery = graphql`
             }
           }
         }
+        heading
+        name
         description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
       }
     }
   }
