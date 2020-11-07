@@ -16,6 +16,46 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div>
+    <div className="hero" style={{
+      height: "100vh",
+      position: "relative"
+    }}>
+      <h1
+          style={{
+            color: '#1E90FF',
+            lineHeight: '1',
+            width: "50%",
+            padding: 48,
+            fontSize: 116,
+            textTransform: "uppercase",
+            lineHeight: "90%"
+          }}
+        >
+          <span style={{color: "rgba(255, 165, 2, 0.5)"}}>{title}</span><br/>
+          {subheading}
+        </h1>
+      <div className="background-left" style={{
+        width: "50%",
+        height: "100%",
+        backgroundColor: "#1E90FF",
+        opacity: 0.5,
+        position: "absolute",
+        right: 0,
+        top: 0
+      }}>
+      </div>
+      {/* <img 
+      src={
+          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
+        } 
+        style={{
+          position: "absolute",
+          top: 0,
+          right: 0
+        }} 
+        /> */}
+
+    </div>
     <div
       className="full-width-image margin-top-0"
       style={{
