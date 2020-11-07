@@ -15,6 +15,11 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         description={data.description}
         intro={data.intro || { blurbs: [] }}
         mainpitch={data.mainpitch || {}}
+        connectcta={data.connectcta}
+        connecttitle={data.connecttitle}
+        connectsubtitle={data.connectsubtitle}
+        connectimage={getAsset(data.connectimage)}
+        social={data.social || { links: [] } }
       />
     )
   } else {
