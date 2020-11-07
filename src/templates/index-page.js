@@ -14,6 +14,11 @@ export const IndexPageTemplate = ({
   mainpitch,
   description,
   intro,
+  connectcta,
+  connecttitle,
+  connectsubtitle,
+  connectimage,
+  social
 }) => (
   <div>
 
@@ -36,7 +41,7 @@ export const IndexPageTemplate = ({
       />
     </div>
 
-    <div className="hero full" style={{
+    <div className="hero" style={{
       backgroundColor: "rgba(255, 165, 2, 0.5)",
       padding: 48
     }}>
@@ -51,7 +56,7 @@ export const IndexPageTemplate = ({
       }} >{mainpitch.title}</h1>
       {mainpitch.skills ? 
       mainpitch.skills.map((item,i)=>
-      <h2 key={i} style={{
+      <h2 key={"skill"+i} style={{
         fontStyle: "normal",
         fontWeight: 900,
         fontSize: 100,
@@ -66,8 +71,27 @@ export const IndexPageTemplate = ({
 
     <div className="hero left" style={{zIndex:10}}>
       <div className="background" style={{backgroundColor: "rgba(55, 66, 250, 0.5)"}}/>
+      <div className="content" style={{marginTop: 208}}>
+        <h1 style={{color: 'rgba(55, 66, 250, 0.5)'}}>
+            <span style={{color: "rgba(255, 99, 72, 0.5)"}}>
+                {connecttitle}
+            </span>
+            <br/>
+            {connectsubtitle}
+          </h1>
+          <div className="cta" style={{marginBottom: 8, display:"block"}}>
+            <a href="#contact">{connectcta}</a>
+          </div>
+          {social.links ? social.links.map((link,i)=>
+            <a key={"social"+i} alt={link.title} href={link.url}>
+              <div className="socialLink">
+                <img src={!!link.image.childImageSharp ? link.image.childImageSharp.fluid.src : link.image} />
+              </div>
+              </a>
+          ) : null }
+      </div>
       <img 
-        src={!!image.childImageSharp ? image.childImageSharp.fluid.src : image} 
+        src={!!connectimage.childImageSharp ? connectimage.childImageSharp.fluid.src : connectimage} 
         style={{
           position: "absolute",
           top: 0,
@@ -76,6 +100,33 @@ export const IndexPageTemplate = ({
       />
     </div>
 
+    <div className="hero" style={{
+      backgroundColor: "rgba(255, 99, 72, 0.5)",
+      padding: 48
+    }}>
+      <h1 style={{
+        fontStyle: "normal",
+        fontWeight: 300,
+        fontSize: 100,
+        lineHeight: "90%",
+        textTransform: "uppercase",
+        color: "#1E90FF",
+        padding: "24px 0px"
+      }} >{mainpitch.title}</h1>
+      {mainpitch.skills ? 
+      mainpitch.skills.map((item,i)=>
+      <h2 key={"skill"+i} style={{
+        fontStyle: "normal",
+        fontWeight: 900,
+        fontSize: 100,
+        lineHeight: "90%",
+        textTransform: "uppercase",
+        color: "rgba(255, 99, 72, 0.5)",
+        padding: "24px 0px"
+      }}>{item}</h2>
+      )
+      : null}
+    </div>
     
     <div
       className="full-width-image margin-top-0"
@@ -185,6 +236,11 @@ IndexPageTemplate.propTypes = {
   intro: PropTypes.shape({
     blurbs: PropTypes.array,
   }),
+  connectcta: PropTypes.string,
+  connecttitle: PropTypes.string,
+  connectsubtitle: PropTypes.string,
+  connectimage: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  social: PropTypes.object
 }
 
 const IndexPage = ({ data }) => {
@@ -200,6 +256,11 @@ const IndexPage = ({ data }) => {
         mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
         intro={frontmatter.intro}
+        connectcta={frontmatter.connectcta}
+        connecttitle={frontmatter.connecttitle}
+        connectsubtitle={frontmatter.connectsubtitle}
+        connectimage={frontmatter.connectimage}
+        social={frontmatter.social}
       />
     </Layout>
   )
@@ -233,6 +294,29 @@ export const pageQuery = graphql`
           title
           skills
           description
+        }
+        connectcta
+        connecttitle
+        connectsubtitle
+        connectimage {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        social {
+          links {
+            title
+            url
+            image {
+              childImageSharp {
+                fluid(maxWidth: 240, quality: 64) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
         }
         description
         intro {
