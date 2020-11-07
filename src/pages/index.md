@@ -1,9 +1,9 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: Don't be
+subheading: Boring
 image: /img/mainillustration.png
 heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
 mainpitch:
   title: Why Kaldi
   description: >
