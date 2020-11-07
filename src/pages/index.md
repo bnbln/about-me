@@ -16,6 +16,18 @@ mainpitch:
     - Javascript Development
     - Motion Design
     - Learn about Tech
+connecttitle: Don't be
+connectsubtitle: Shy
+connectimage: /img/saly-13.png
+connectcta: Leave a message
+social:
+  links:
+    - title: LinkedIn
+      url: https://www.linkedin.com/in/benedikt-schnupp-928112116/
+      image: /img/apple-touch-icon.png
+    - title: Instagram
+      url: https://instagram.com/bnbln
+      image: /img/apple-touch-icon.png
 description: Kaldi is the ultimate spot for coffee lovers who want to learn
   about their java’s origin and support the farmers that grew it. We take coffee
   production, roasting and brewing seriously and we’re glad to pass that
