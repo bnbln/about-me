@@ -3,7 +3,6 @@ templateKey: index-page
 title: Don't be
 subheading: Boring
 image: /img/mainillustration.png
-heading: Great coffee with a conscience
 mainpitch:
   title: What i do
   description: >
@@ -28,6 +27,8 @@ social:
     - title: Instagram
       url: https://instagram.com/bnbln
       image: /img/apple-touch-icon.png
+heading: About me
+name: Benedikt Schnupp
 description: Kaldi is the ultimate spot for coffee lovers who want to learn
   about their java’s origin and support the farmers that grew it. We take coffee
   production, roasting and brewing seriously and we’re glad to pass that
@@ -62,11 +63,10 @@ intro:
         coffee making techniques. All of the artwork on display there is for
         sale. The full price you pay goes to the artist.
   heading: What we offer
-  description: >
-    Kaldi is the ultimate spot for coffee lovers who want to learn about their
-    java’s origin and support the farmers that grew it. We take coffee
-    production, roasting and brewing seriously and we’re glad to pass that
-    knowledge to anyone. This is an edit via identity...
+  description: >-
+    Hey there, 
+
+    my name is Bene and I am a Motion Designer from Berlin, Germany. In 2019 I’ve graduated as Communication Designer and Media Manager. During my studies I was always curious to learn new things and got into Web Developement. My biggest strength is Communication: I love getting to know new people and get inspired by art, tech and journalism.
 main:
   heading: Great coffee with no compromises
   description: >
