@@ -5,12 +5,17 @@ subheading: Boring
 image: /img/mainillustration.png
 heading: Great coffee with a conscience
 mainpitch:
-  title: Why Kaldi
+  title: What i do
   description: >
     Kaldi is the coffee store for everyone who believes that great coffee
     shouldn't just taste good, it should do good too. We source all of our beans
     directly from small scale sustainable farmers and make sure part of the
     profits are reinvested in their communities.
+  skills:
+    - Ux/Ui Design
+    - Javascript Development
+    - Motion Design
+    - Learn about Tech
 description: Kaldi is the ultimate spot for coffee lovers who want to learn
   about their java’s origin and support the farmers that grew it. We take coffee
   production, roasting and brewing seriously and we’re glad to pass that
