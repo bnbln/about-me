@@ -26,7 +26,6 @@ export const IndexPageTemplate = ({
       <h1
           style={{
             color: '#1E90FF',
-            lineHeight: '1',
             width: "50%",
             padding: 48,
             fontSize: 116,
@@ -65,11 +64,31 @@ export const IndexPageTemplate = ({
       position: "relative",
       display: "flex",
       justifyContent: "center",
-      alignItems: "center",
       backgroundColor: "rgba(255, 165, 2, 0.5)",
       padding: 48
     }}>
-
+      <h1 style={{
+        fontStyle: "normal",
+        fontWeight: 300,
+        fontSize: 100,
+        lineHeight: "90%",
+        textTransform: "uppercase",
+        color: "#1E90FF",
+        padding: "24px 0px"
+      }} >{mainpitch.title}</h1>
+      {mainpitch.skills ? 
+      mainpitch.skills.map((item,i)=>
+      <h2 key={i} style={{
+        fontStyle: "normal",
+        fontWeight: 900,
+        fontSize: 100,
+        lineHeight: "90%",
+        textTransform: "uppercase",
+        color: "rgba(255, 99, 72, 0.5)",
+        padding: "24px 0px"
+      }}>{item}</h2>
+      )
+      : null}
     </div>
 
     
@@ -227,6 +246,7 @@ export const pageQuery = graphql`
         subheading
         mainpitch {
           title
+          skills
           description
         }
         description
