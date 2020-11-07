@@ -18,7 +18,10 @@ export const IndexPageTemplate = ({
   <div>
     <div className="hero" style={{
       height: "100vh",
-      position: "relative"
+      position: "relative",
+      display: "flex",
+      justifyContent: "center",
+      zIndex:10
     }}>
       <h1
           style={{
@@ -27,11 +30,15 @@ export const IndexPageTemplate = ({
             width: "50%",
             padding: 48,
             fontSize: 116,
+            fontWeight: 900,
             textTransform: "uppercase",
             lineHeight: "90%"
           }}
         >
-          <span style={{color: "rgba(255, 165, 2, 0.5)"}}>{title}</span><br/>
+          <span style={{
+            color: "rgba(255, 165, 2, 0.5)",
+            fontWeight: 300
+            }}>{title}</span><br/>
           {subheading}
         </h1>
       <div className="background-left" style={{
@@ -44,18 +51,28 @@ export const IndexPageTemplate = ({
         top: 0
       }}>
       </div>
-      {/* <img 
-      src={
+      <img src={
           !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        } 
-        style={{
+        } style={{
           position: "absolute",
           top: 0,
           right: 0
         }} 
-        /> */}
+      />
+    </div>
+    <div className="hero" style={{
+      height: "100vh",
+      position: "relative",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "rgba(255, 165, 2, 0.5)",
+      padding: 48
+    }}>
 
     </div>
+
+    
     <div
       className="full-width-image margin-top-0"
       style={{
