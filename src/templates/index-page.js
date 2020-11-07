@@ -16,54 +16,27 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div>
-    <div className="hero" style={{
-      height: "100vh",
-      position: "relative",
-      display: "flex",
-      justifyContent: "center",
-      zIndex:10
-    }}>
-      <h1
-          style={{
-            color: '#1E90FF',
-            width: "50%",
-            padding: 48,
-            fontSize: 116,
-            fontWeight: 900,
-            textTransform: "uppercase",
-            lineHeight: "90%"
-          }}
-        >
-          <span style={{
-            color: "rgba(255, 165, 2, 0.5)",
-            fontWeight: 300
-            }}>{title}</span><br/>
+
+    <div className="hero right" style={{zIndex:10}}>
+      <h1 style={{color: '#1E90FF', width: "50%", padding: 48}}>
+          <span style={{color: "rgba(255, 165, 2, 0.5)"}}>
+              {title}
+          </span>
+          <br/>
           {subheading}
         </h1>
-      <div className="background-left" style={{
-        width: "50%",
-        height: "100%",
-        backgroundColor: "#1E90FF",
-        opacity: 0.5,
-        position: "absolute",
-        right: 0,
-        top: 0
-      }}>
-      </div>
-      <img src={
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        } style={{
+      <div className="background" style={{backgroundColor: "rgba(30, 144, 255, 0.5)"}}/>
+      <img 
+        src={!!image.childImageSharp ? image.childImageSharp.fluid.src : image} 
+        style={{
           position: "absolute",
           top: 0,
           right: 0
         }} 
       />
     </div>
-    <div className="hero" style={{
-      height: "100vh",
-      position: "relative",
-      display: "flex",
-      justifyContent: "center",
+
+    <div className="hero full" style={{
       backgroundColor: "rgba(255, 165, 2, 0.5)",
       padding: 48
     }}>
@@ -89,6 +62,18 @@ export const IndexPageTemplate = ({
       }}>{item}</h2>
       )
       : null}
+    </div>
+
+    <div className="hero left" style={{zIndex:10}}>
+      <div className="background" style={{backgroundColor: "rgba(55, 66, 250, 0.5)"}}/>
+      <img 
+        src={!!image.childImageSharp ? image.childImageSharp.fluid.src : image} 
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0
+        }} 
+      />
     </div>
 
     
