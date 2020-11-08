@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
-import Features from '../components/Features'
-import BlogRoll from '../components/BlogRoll'
 
 export const IndexPageTemplate = ({
   image,
@@ -23,54 +21,34 @@ export const IndexPageTemplate = ({
   <div>
 
     <div className="hero right" style={{zIndex:10}}>
-      <h1 style={{color: '#1E90FF', width: "50%", padding: 48}}>
-          <span style={{color: "rgba(255, 165, 2, 0.5)"}}>
-              {title}
-          </span>
+      <div className="content">
+        <h1 className="lead" style={{color: "rgba(255, 165, 2, 0.5)"}}>
+          {title}
           <br/>
-          {subheading}
+          <span style={{color: '#1E90FF', fontWeight:900}}>
+            {subheading}
+          </span>
         </h1>
-      <div className="background" style={{backgroundColor: "rgba(30, 144, 255, 0.5)"}}/>
-      <img 
-        src={!!image.childImageSharp ? image.childImageSharp.fluid.src : image} 
-        style={{
-          position: "absolute",
-          top: 0,
-          right: 0
-        }} 
-      />
+      </div>
+      <div className="background" style={{backgroundColor: "rgba(30, 144, 255, 0.5)"}}>
+        <img src={!!image.childImageSharp ? image.childImageSharp.fluid.src : image} alt="Illustration"/>
+      </div>
     </div>
 
-    <div className="hero" style={{
-      backgroundColor: "rgba(255, 165, 2, 0.5)",
-      padding: 48
-    }}>
-      <h1 style={{
-        fontStyle: "normal",
-        fontWeight: 300,
-        fontSize: 100,
-        lineHeight: "90%",
-        textTransform: "uppercase",
-        color: "#1E90FF",
-        padding: "24px 0px"
-      }} >{mainpitch.title}</h1>
-      {mainpitch.skills ? 
-      mainpitch.skills.map((item,i)=>
-      <h2 key={"skill"+i} style={{
-        fontStyle: "normal",
-        fontWeight: 900,
-        fontSize: 100,
-        lineHeight: "90%",
-        textTransform: "uppercase",
-        color: "rgba(255, 99, 72, 0.5)",
-        padding: "24px 0px"
-      }}>{item}</h2>
-      )
-      : null}
+    <div className="hero" style={{backgroundColor: "rgba(255, 165, 2, 0.5)"}}>
+      <div className="content">
+        <h1 style={{color: "#1E90FF"}}>
+          {mainpitch.title}
+        </h1>
+        {mainpitch.skills ? mainpitch.skills.map((item,i)=>
+        <h2 key={"skill"+i} className="skill" style={{
+          color: "rgba(255, 99, 72, 0.5)",
+        }}>{item}</h2>
+        ): null}
+      </div>
     </div>
 
-    <div className="hero left" style={{zIndex:10}}>
-      <div className="background" style={{backgroundColor: "rgba(55, 66, 250, 0.5)"}}/>
+    <div className="hero left">
       <div className="content" style={{marginTop: 208}}>
         <h1 style={{color: 'rgba(55, 66, 250, 0.5)'}}>
             <span style={{color: "rgba(255, 99, 72, 0.5)"}}>
@@ -90,69 +68,39 @@ export const IndexPageTemplate = ({
               </a>
           ) : null }
       </div>
+      <div className="background" style={{backgroundColor: "rgba(55, 66, 250, 0.5)"}}>
       <img 
         src={!!connectimage.childImageSharp ? connectimage.childImageSharp.fluid.src : connectimage} 
         style={{
           position: "absolute",
           top: 0,
-          left: 0
+          left: 0,
+          pointerEvents: "none"
         }} 
       />
+      </div>
     </div>
 
-    <div className="hero" style={{
-      backgroundColor: "rgba(255, 99, 72, 0.5)",
-      padding: 48
-    }}>
-      <h1 style={{
-        fontStyle: "normal",
-        fontWeight: 300,
-        fontSize: 100,
-        lineHeight: "90%",
-        textTransform: "uppercase",
-        color: "#1E90FF",
-        padding: "24px 0px"
-      }} >{heading}</h1>
-      <h2  style={{
-        fontStyle: "normal",
-        fontWeight: 900,
-        fontSize: 100,
-        lineHeight: "90%",
-        textTransform: "uppercase",
-        color: "rgba(255, 99, 72, 0.5)",
-        padding: "24px 0px"
-      }}>{name}</h2>
-      <p>{description}</p>
+    <div className="hero" style={{backgroundColor: "rgba(255, 99, 72, 0.5)"}}>
+      <div className="content">
+        <h1 style={{color: "#0A306A"}} >{heading}</h1>
+        <h1 style={{fontWeight: 900,color: "rgba(255, 99, 72, 0.5)"}}>{name}</h1>
+        <p style={{color: "#0A306A"}}>{description}</p>
+      </div>
     </div>
 
-     <div className="hero" id="contact" style={{
-      backgroundColor: "#0A306A",
-      padding: 48
-    }}>
-      <h1 style={{
-        fontStyle: "normal",
-        fontWeight: 300,
-        fontSize: 100,
-        lineHeight: "90%",
-        textTransform: "uppercase",
-        color: "#1E90FF",
-        padding: "24px 0px"
-      }} >Contact</h1>
-      <form name="contact" method="POST" data-netlify="true">
-        <p>
-          <label>Your Name: <input type="text" name="name" /></label>   
-        </p>
-        <p>
-          <label>Your Email: <input type="email" name="email" /></label>
-        </p>
-        <p>
-          <label>Message: <textarea name="message"></textarea></label>
-        </p>
-        <p>
+     <div className="hero" id="contact" style={{backgroundColor: "#0A306A"}}>
+      <div className="content">
+        <h1 style={{color: "#1E90FF"}}>Contact</h1>
+        <form name="contact" method="POST" data-netlify="true">
+          <input className="email" type="text" name="name" placeholder="Name"/>
+          <input className="email" type="email" name="email" placeholder="Mail" />
+          <textarea name="message" placeholder="Message"></textarea>
           <button type="submit">Send</button>
-        </p>
-    </form>
+        </form>
+      </div>
     </div>
+    
   </div>
 )
 

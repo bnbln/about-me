@@ -10,39 +10,34 @@ $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
 
+$desktop: 1150px
+$tablet: 850px
+$phone: 640px
+
+$h1-base: 7em
+$h1-desktop: 5em
+$h1-tablet: 4em
+$h1-phone: 2.5em
+// @import "~bulma"
 *
   font-family: 'Raleway', sans-serif
 
-@import "~bulma"
-// responsiveness
-+tablet-only
-  .blog-list-item .featured-thumbnail
-    flex-basis: 50%;
 
-+mobile
-  .blog-list-item header
-    display: block
-  .blog-list-item .featured-thumbnail
-    text-align: center;
-    max-width: 70%;
-    margin: 0 0 1em;
+html, body, p, h1, h2, h3, h4, h5, h6, a 
+  margin: 0px
+  padding: 0px
 
 
-  //index-page
+//index-page
 
 .hero
   height: 100vh
   position: relative
   display: flex
+  flex-direction: row
   justify-content: center
-  h1 
-    font-size: 116px
-    font-weight: 900
-    text-transform: uppercase
-    line-height: 90%
-    z-index: 1
-    span
-      font-weight: 300
+  @media screen and (max-width: $tablet)
+    flex-direction: column
   .cta
     a
       border-radius: 99px
@@ -72,31 +67,111 @@ $black: #2b2523
     display: inline-block
     img
       width: 100%
-  &.right
+  .content
+    display: flex
+    flex-direction: column
+    justify-content: center
+    flex: 1
+    padding: 48px
+    p 
+      font-size: 2em
+      line-height: 130%
+      @media screen and (max-width: $phone)
+        font-size: 1.4em
+    h1, h2
+      font-style: normal
+      font-weight: 300
+      font-size: $h1-base
+      z-index: 1
+      line-height: 90%
+      text-transform: uppercase
+      padding: 24px 0px
+      @media screen and (max-width: $desktop)
+        font-size: $h1-desktop
+        &.lead
+          font-size: 7em
+      @media screen and (max-width: $tablet)
+        font-size: $h1-tablet
+        &.lead
+          font-size: 7em
+      @media screen and (max-width: $phone)
+        font-size: $h1-phone
+        &.lead
+          font-size: 4em
+      &.skill
+        font-weight: 900
+  &.right, &.left
     .content
-      margin-left: 50%
-    .background
-      width: 50%
-      height: 100%
-      position: absolute
-      right: 0
-      top: 0
-      z-index: 0
-  &.left
-    .content
-      width: 50%
+      flex: 1
+      display: flex
+      position: relative
+      margin-left: 0px
       padding: 48px
-      margin-left: 50%
-    .background
-      width: 50%
       height: 100%
-      position: absolute
-      left: 0
-      top: 0
+      align-items: center
+      @media screen and (max-width: $tablet)
+        margin-left: 0px
+    .background
+      flex: 1
+      height: 100%
       z-index: 0
+      img
+        position: absolute
+        right: 0
+        top: 0
+        pointerEvents: none
+      @media screen and (max-width: $tablet)
+        display: flex
+        align-items: center
+        position: relative
+        img
+          position: relative
+          width: 100%
+          
+  &.left
+    flex-direction: row-reverse
+    @media screen and (max-width: $tablet)
+      flex-direction: column-reverse
   form
     p 
       color: #fff
+    input, textarea
+      margin-bottom: 24px
+      display: block
+      height: 50px
+      width: 100%
+      margin: 0 auto
+      border: none
+      background-color: rgba(255,255,255,0)
+      &::placeholder
+        -webkit-transform: translateY(0px)
+        transform: translateY(0px)
+        -webkit-transition: 0.5s
+        transition: 0.5s
+      &:hover, &:focus, &:active:focus
+        color: #ff5722
+        outline: none
+        border-bottom: 1px solid #fff
+        &::placeholder
+          color: #fff;
+          position: relative
+          -webkit-transform: translateY(-20px)
+          transform: translateY(-20px)
+
+  
+  .email
+    position: relative
+    z-index: 1
+    border-bottom: 1px solid rgba(0,0,0,.1)
+    padding-left: 20px
+    text-transform: uppercase
+    color: #858585
+    font-weight: lighter
+    -webkit-transition: 0.5s
+    transition: 0.5s
 
 
     // 1150
+
+
+
