@@ -27,6 +27,11 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
   margin: 0px
   padding: 0px
 
+nav
+  padding: 54px
+  position: absolute
+  @media screen and (max-width: $phone)
+    padding: 16px
 
 //index-page
 
@@ -39,7 +44,7 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
   @media screen and (max-width: $tablet)
     flex-direction: column
   .cta
-    a
+    a, button
       border-radius: 99px
       background-color: #fff
       box-shadow: 0px 1px 2px rgba(97, 97, 97, 0.2), 0px 2px 4px rgba(97, 97, 97, 0.2)
@@ -53,22 +58,32 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
       margin-right: 16px
       position: relative
       display: inline-block
+      text-decoration: none
+      color: rgba(55, 66, 250, 0.5)
+      transition: all 0.3s cubic-bezier(0.65, 0.05, 0.36, 1)
+      &:hover
+        color: rgba(55, 66, 250, 1)
   a
     display: inline 
     .socialLink
       position: relative
       align-items: center
       justify-content: center
-      padding: 8px
+      padding: 22px
       border-radius: 99px
       overflow: hidden
       box-shadow: 0px 1px 2px rgba(97, 97, 97, 0.2), 0px 2px 4px rgba(97, 97, 97, 0.2)
-      width: 70px
-      height: 70px
+      width: 40px
+      height: 40px
       margin-right: 16px
       display: inline-block
       img
+        opacity: 0.5
         width: 100%
+        transition: all 0.3s cubic-bezier(0.65, 0.05, 0.36, 1)
+      &:hover
+        img
+          opacity: 1
   .content
     display: flex
     flex-direction: column
@@ -76,10 +91,13 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
     flex: 1
     padding: 48px
     z-index: 10
+    @media screen and (max-width: $phone)
+      padding: 16px
     p 
       color: #0A306A
       font-size: 2em
       line-height: 130%
+      padding: 24px 0px
       @media screen and (max-width: $phone)
         font-size: 1.4em
     h1, h2
@@ -123,7 +141,7 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
           &::after
             width: 100%
         @media screen and (max-width: $phone)
-          padding: 8px
+          padding: 8px 0px
           font-size: 2em
   &.right, &.left
     .content
@@ -135,6 +153,8 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
       @media screen and (max-width: $tablet)
         margin-left: 0px
         min-height: 60vh
+      @media screen and (max-width: $phone)
+        padding: 16px
     .background
       display: flex
       flex: 1
@@ -165,43 +185,9 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
     flex-direction: row-reverse
     @media screen and (max-width: $tablet)
       flex-direction: column-reverse
-  form
-    p 
-      color: #fff
-    input, textarea
-      margin-bottom: 24px
-      display: block
-      height: 50px
-      width: 100%
-      margin: 0 auto
-      border: none
-      background-color: rgba(255,255,255,0)
-      &::placeholder
-        -webkit-transform: translateY(0px)
-        transform: translateY(0px)
-        -webkit-transition: 0.5s
-        transition: 0.5s
-      &:hover, &:focus, &:active:focus
-        color: #ff5722
-        outline: none
-        border-bottom: 1px solid #fff
-        &::placeholder
-          color: #fff;
-          position: relative
-          -webkit-transform: translateY(-20px)
-          transform: translateY(-20px)
 
-  
-  .email
-    position: relative
-    z-index: 1
-    border-bottom: 1px solid rgba(0,0,0,.1)
-    padding-left: 20px
-    text-transform: uppercase
-    color: #858585
-    font-weight: lighter
-    -webkit-transition: 0.5s
-    transition: 0.5s
+.formField
+  margin-bottom: 8px!important
 
 .connectimg
   animation: connect 5s linear infinite

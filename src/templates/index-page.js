@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 
 
 import Typed from 'react-typed';
+import TextField from '@material-ui/core/TextField';
 
 import Layout from '../components/Layout'
 
@@ -66,7 +67,7 @@ export const IndexPageTemplate = ({
             </span>
           </h1>
           <div style={{
-            display: "flex",
+            display: "flex-wrap",
             flexDirection: "row"
           }}>
             <div className="cta" style={{marginBottom: 8, display:"block"}}>
@@ -75,7 +76,8 @@ export const IndexPageTemplate = ({
             {social.links ? social.links.map((link,i)=>
               <a key={"social"+i} href={link.url} target="_blank" rel="noreferrer">
                 <div className="socialLink">
-                  <img src={!!link.image.childImageSharp ? link.image.childImageSharp.fluid.src : link.image} alt={link.title} />
+                  {console.log(link)}
+                  <img src={!!link.image.childImageSharp ? link.image.childImageSharp.fluid.src : link.image.publicURL} alt={link.title} />
                 </div>
                 </a>
             ) : null }
@@ -98,10 +100,12 @@ export const IndexPageTemplate = ({
       <div className="content">
         <h1 style={{color: "#1E90FF"}}>Contact</h1>
         <form name="contact" method="POST" data-netlify="true">
-          <input className="email" type="text" name="name" placeholder="Name"/>
-          <input className="email" type="email" name="email" placeholder="Mail" />
-          <textarea name="message" placeholder="Message"></textarea>
-          <button type="submit">Send</button>
+          <TextField className="formField" label="Name" variant="filled" fullWidth />
+          <TextField className="formField" label="E-Mail" variant="filled" fullWidth />
+          <TextField className="formField" label="Message" variant="filled" multiline fullWidth />
+          <div className="cta" style={{marginBottom: 8, display:"block", marginTop: 24}}>
+              <button type="submit" style={{color:"rgb(10, 48, 106)"}}>Send</button>
+          </div>
         </form>
       </div>
     </div>
@@ -193,6 +197,7 @@ export const pageQuery = graphql`
             title
             url
             image {
+              publicURL
               childImageSharp {
                 fluid(maxWidth: 240, quality: 64) {
                   ...GatsbyImageSharpFluid

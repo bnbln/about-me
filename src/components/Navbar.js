@@ -36,10 +36,6 @@ const Navbar = class extends React.Component {
       <nav
         role="navigation"
         aria-label="main-navigation"
-        style={{
-          position: "absolute",
-          padding: 48
-        }}
       >
             <Link to="/" title="Logo">
               <img src={logo} alt="Kaldi" style={{ width: '38.5px' }} />
