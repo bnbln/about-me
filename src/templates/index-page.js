@@ -18,7 +18,7 @@ export const IndexPageTemplate = ({
   name,
   description
 }) => (
-  <div>
+  <div style={{display: "flex", flexDirection: "column"}}>
 
     <div className="hero right" style={{zIndex:10}}>
       <div className="content">
@@ -31,7 +31,7 @@ export const IndexPageTemplate = ({
         </h1>
       </div>
       <div className="background" style={{backgroundColor: "rgba(30, 144, 255, 0.5)"}}>
-        <img src={!!image.childImageSharp ? image.childImageSharp.fluid.src : image} alt="Illustration"/>
+        <img src={!!image.childImageSharp ? image.childImageSharp.fluid.src : image} alt="Illustration" className="heroimage1"/>
       </div>
     </div>
 
@@ -41,43 +41,33 @@ export const IndexPageTemplate = ({
           {mainpitch.title}
         </h1>
         {mainpitch.skills ? mainpitch.skills.map((item,i)=>
-        <h2 key={"skill"+i} className="skill" style={{
-          color: "rgba(255, 99, 72, 0.5)",
-        }}>{item}</h2>
+        <h2 key={"skill"+i} className="skill">{item}</h2>
         ): null}
       </div>
     </div>
 
     <div className="hero left">
-      <div className="content" style={{marginTop: 208}}>
-        <h1 style={{color: 'rgba(55, 66, 250, 0.5)'}}>
-            <span style={{color: "rgba(255, 99, 72, 0.5)"}}>
+      <div className="content">
+        <h1 style={{color: "rgba(255, 99, 72, 0.5)"}}>
                 {connecttitle}
-            </span>
             <br/>
+            <span style={{color: 'rgba(55, 66, 250, 0.5)', fontWeight:900}}>
             {connectsubtitle}
+            </span>
           </h1>
           <div className="cta" style={{marginBottom: 8, display:"block"}}>
             <a href="#contact">{connectcta}</a>
           </div>
           {social.links ? social.links.map((link,i)=>
-            <a key={"social"+i} alt={link.title} href={link.url}>
+            <a key={"social"+i} alt={link.title} href={link.url} target="_blank">
               <div className="socialLink">
                 <img src={!!link.image.childImageSharp ? link.image.childImageSharp.fluid.src : link.image} />
               </div>
               </a>
           ) : null }
       </div>
-      <div className="background" style={{backgroundColor: "rgba(55, 66, 250, 0.5)"}}>
-      <img 
-        src={!!connectimage.childImageSharp ? connectimage.childImageSharp.fluid.src : connectimage} 
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          pointerEvents: "none"
-        }} 
-      />
+      <div className="background" style={{backgroundColor: "rgba(55, 66, 250, 0.5)", overflow:"hidden"}}>
+        <img className="connectimg" src={!!connectimage.childImageSharp ? connectimage.childImageSharp.fluid.src : connectimage}/>
       </div>
     </div>
 

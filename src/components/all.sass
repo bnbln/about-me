@@ -11,7 +11,7 @@ $body-color: #333
 $black: #2b2523
 
 $desktop: 1150px
-$tablet: 850px
+$tablet: 890px
 $phone: 640px
 
 $h1-base: 7em
@@ -31,7 +31,7 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
 //index-page
 
 .hero
-  height: 100vh
+  min-height: 100vh
   position: relative
   display: flex
   flex-direction: row
@@ -53,20 +53,22 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
       margin-right: 16px
       position: relative
       display: inline-block
-  .socialLink
-    position: relative
-    align-items: center
-    justify-content: center
-    padding: 16px
-    border-radius: 99px
-    overflow: hidden
-    box-shadow: 0px 1px 2px rgba(97, 97, 97, 0.2), 0px 2px 4px rgba(97, 97, 97, 0.2)
-    width: 80px
-    height: 80px
-    margin-right: 16px
-    display: inline-block
-    img
-      width: 100%
+  a
+    display: inline 
+    .socialLink
+      position: relative
+      align-items: center
+      justify-content: center
+      padding: 16px
+      border-radius: 99px
+      overflow: hidden
+      box-shadow: 0px 1px 2px rgba(97, 97, 97, 0.2), 0px 2px 4px rgba(97, 97, 97, 0.2)
+      width: 80px
+      height: 80px
+      margin-right: 16px
+      display: inline-block
+      img
+        width: 100%
   .content
     display: flex
     flex-direction: column
@@ -89,17 +91,38 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
       @media screen and (max-width: $desktop)
         font-size: $h1-desktop
         &.lead
-          font-size: 7em
+          font-size: 6em
       @media screen and (max-width: $tablet)
         font-size: $h1-tablet
         &.lead
-          font-size: 7em
+          font-size: 5em
       @media screen and (max-width: $phone)
         font-size: $h1-phone
         &.lead
           font-size: 4em
       &.skill
         font-weight: 900
+        position: relative
+        width: fit-content
+        opacity: 0.5
+        color: rgb(255, 99, 72)
+        transition: all 0.3s cubic-bezier(0.65, 0.05, 0.36, 1)
+        &::after
+          content: ""
+          position: absolute
+          height: 1vw
+          width: 0%
+          left: 0
+          bottom: 0
+          background: rgb(255, 99, 72)
+          transition: all 0.5s cubic-bezier(0.65, 0.05, 0.36, 1)
+        &:hover
+          opacity: 1
+          &::after
+            width: 100%
+        @media screen and (max-width: $phone)
+          padding: 8px
+          font-size: 2em
   &.right, &.left
     .content
       flex: 1
@@ -107,27 +130,34 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
       position: relative
       margin-left: 0px
       padding: 48px
-      height: 100%
-      align-items: center
       @media screen and (max-width: $tablet)
         margin-left: 0px
+        min-height: 60vh
     .background
+      display: flex
       flex: 1
       height: 100%
       z-index: 0
-      img
+      min-height: 100vh;
+      .heroimage1
         position: absolute
         right: 0
         top: 0
         pointerEvents: none
+        transform: translate(0px, 0px) scale(1) 
+        transform-origin: right center
+      @media screen and (max-width: $desktop)
+        .heroimage1
+          transform: scale(0.7)
       @media screen and (max-width: $tablet)
         display: flex
         align-items: center
         position: relative
-        img
+        min-height: 50vh
+        .heroimage1
           position: relative
-          width: 100%
-          
+          width: 100%     
+          transform: translate(-15vw, -10vh) scale(1.5)    
   &.left
     flex-direction: row-reverse
     @media screen and (max-width: $tablet)
@@ -170,8 +200,16 @@ html, body, p, h1, h2, h3, h4, h5, h6, a
     -webkit-transition: 0.5s
     transition: 0.5s
 
-
-    // 1150
-
-
-
+.connectimg
+  animation: connect 5s linear infinite
+@keyframes connect 
+  0%
+    transform: translateY(0px)
+  25%
+    transform: translateY(+20px)
+  50%
+      transform: translateY(0px)
+  75%
+      transform: translateY(-20px)
+  100%
+    transform: translateY(0px)
