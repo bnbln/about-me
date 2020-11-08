@@ -2,7 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
+
+import Typed from 'react-typed';
+
 import Layout from '../components/Layout'
+
 
 export const IndexPageTemplate = ({
   image,
@@ -26,7 +30,13 @@ export const IndexPageTemplate = ({
           {title}
           <br/>
           <span style={{color: '#1E90FF', fontWeight:900}}>
-            {subheading}
+          <Typed
+                    strings={[subheading, "normal", "grey", "flat"]}
+                    backDelay={2000}
+                    typeSpeed={30}
+                    backSpeed={50}
+                    loop
+                />
           </span>
         </h1>
       </div>
@@ -55,16 +65,21 @@ export const IndexPageTemplate = ({
             {connectsubtitle}
             </span>
           </h1>
-          <div className="cta" style={{marginBottom: 8, display:"block"}}>
-            <a href="#contact">{connectcta}</a>
+          <div style={{
+            display: "flex",
+            flexDirection: "row"
+          }}>
+            <div className="cta" style={{marginBottom: 8, display:"block"}}>
+              <a href="#contact">{connectcta}</a>
+            </div>
+            {social.links ? social.links.map((link,i)=>
+              <a key={"social"+i} href={link.url} target="_blank" rel="noreferrer">
+                <div className="socialLink">
+                  <img src={!!link.image.childImageSharp ? link.image.childImageSharp.fluid.src : link.image} alt={link.title} />
+                </div>
+                </a>
+            ) : null }
           </div>
-          {social.links ? social.links.map((link,i)=>
-            <a key={"social"+i} href={link.url} target="_blank" rel="noreferrer">
-              <div className="socialLink">
-                <img src={!!link.image.childImageSharp ? link.image.childImageSharp.fluid.src : link.image} alt={link.title} />
-              </div>
-              </a>
-          ) : null }
       </div>
       <div className="background" style={{backgroundColor: "rgba(55, 66, 250, 0.5)", overflow:"hidden"}}>
         <img className="connectimg" src={!!connectimage.childImageSharp ? connectimage.childImageSharp.fluid.src : connectimage} alt="Illustration"/>
@@ -75,7 +90,7 @@ export const IndexPageTemplate = ({
       <div className="content">
         <h1 style={{color: "#0A306A"}} >{heading}</h1>
         <h1 style={{fontWeight: 900,color: "rgba(255, 99, 72, 0.5)"}}>{name}</h1>
-        <div dangerouslySetInnerHTML={{ __html: description }}></div>
+        <p dangerouslySetInnerHTML={{ __html: description }}></p>
       </div>
     </div>
 
