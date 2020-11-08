@@ -23,10 +23,13 @@ social:
   links:
     - title: LinkedIn
       url: https://www.linkedin.com/in/benedikt-schnupp-928112116/
-      image: /img/apple-touch-icon.png
+      image: /img/iconmonstr-linkedin-5.svg
     - title: Instagram
       url: https://instagram.com/bnbln
-      image: /img/apple-touch-icon.png
+      image: /img/instagram.svg
+    - title: Github
+      url: https://www.github.com/bnbln
+      image: /img/github-icon.svg
 heading: About me
 name: Benedikt Schnupp
 intro:
