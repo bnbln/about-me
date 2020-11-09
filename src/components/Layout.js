@@ -9,30 +9,30 @@ import { withPrefix } from 'gatsby'
 import CookieConsent from "react-cookie-consent";
 
 
-function setCookies() {
-    var s = document.createElement('script');
-    s.type = "text/javascript"
-    s.async = "true";
-    s.src = "https://www.googletagmanager.com/gtag/js?id=G-7G7CKXKSY1";
-    var x = document.getElementsByTagName('script')[0];
-    x.parentNode.insertBefore(s, x);
-};
+// function setCookies() {
+//     var s = document.createElement('script');
+//     s.type = "text/javascript"
+//     s.async = "true";
+//     s.src = "https://www.googletagmanager.com/gtag/js?id=G-7G7CKXKSY1";
+//     var x = document.getElementsByTagName('script')[0];
+//     x.parentNode.insertBefore(s, x);
+// };
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
-  const [hasCookie, setCookie] = useState(undefined);
-  useEffect(() => setCookie(document.cookie) );
-  var cookie = hasCookie
-  if (!!cookie) {
-    var gdpr = cookie
-      .split('; ')
-      .find(row => row.startsWith('gdpr'))
-      .split('=')[1];
-      console.log(gdpr);
-      if (!!gdpr === true) {
-        setCookies()
-    }
-  }
+  // const [hasCookie, setCookie] = useState(undefined);
+  // useEffect(() => setCookie(document.cookie, []) );
+  // var cookie = hasCookie
+  // if (!!cookie) {
+  //   var gdpr = cookie
+  //     .split('; ')
+  //     .find(row => row.startsWith('gdpr'))
+  //     .split('=')[1];
+  //     console.log(gdpr);
+  //     if (!!gdpr === true) {
+  //       setCookies()
+  //   }
+  // }
   return (
     <div>
       <Helmet>
@@ -74,7 +74,7 @@ const TemplateWrapper = ({ children }) => {
           property="og:image"
           content={`${withPrefix('/')}img/og-image.jpg`}
         />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7G7CKXKSY1"></script>
+        {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-7G7CKXKSY1"></script> */}
 
       </Helmet>
       <Navbar />
@@ -91,7 +91,8 @@ const TemplateWrapper = ({ children }) => {
           style={{ background: "rgba(30, 144, 255, 1)" }}
           expires={150}
           onAccept={() => {
-            setCookies()
+            console.log("allow cookies")
+            // setCookies()
             // window.dataLayer = window.dataLayer || [];
             // function gtag(){dataLayer.push(arguments);}
             // gtag('js', new Date());
