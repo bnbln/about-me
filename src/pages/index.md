@@ -83,7 +83,7 @@ main:
     alt: Coffee beans
     image: /img/products-grid1.jpg
 description: >-
-  Hey there,\
+  Hey there,
 
   my name is Bene and I am a Motion Designer from Berlin, Germany. In 2019 I’ve graduated as Communication Designer and Media Manager. During my studies I was always curious to learn new things and got into Web Developement. My biggest strength is Communication: I love getting to know new people and get inspired by art, tech and journalism.
 ---
