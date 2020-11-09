@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { Helmet } from 'react-helmet'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
@@ -7,6 +7,7 @@ import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
 import CookieConsent from "react-cookie-consent";
+
 
 function setCookies() {
     var s = document.createElement('script');
@@ -19,7 +20,9 @@ function setCookies() {
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata()
-  var cookie = document.cookie
+  const [hasCookie, setCookie] = useState(undefined);
+  useEffect(() => setCookie(document.cookie) );
+  var cookie = hasCookie
   if (!!cookie) {
     var gdpr = cookie
       .split('; ')
