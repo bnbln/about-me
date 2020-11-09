@@ -11,10 +11,10 @@ $body-color: #333
 $black: #2b2523
 
 $desktop: 1150px
-$tablet: 890px
+$tablet: 977px
 $phone: 640px
 
-$h1-base: 7em
+$h1-base: 6em
 $h1-desktop: 5em
 $h1-tablet: 4em
 $h1-phone: 2.5em
@@ -43,6 +43,9 @@ nav
   justify-content: center
   @media screen and (max-width: $tablet)
     flex-direction: column
+    min-height: 80vh
+  @media screen and (max-width: $phone)
+    min-height: 50vh
   .cta
     a, button
       border-radius: 99px
@@ -163,25 +166,25 @@ nav
       min-height: 100vh;
       justify-content: center
       align-items: center
-      .heroimage1
-        position: absolute
-        right: 0
-        top: 0
-        pointerEvents: none
-        transform: translate(0px, 0px) scale(1) 
-        transform-origin: right center
-      @media screen and (max-width: $desktop)
-        .heroimage1
-          transform: scale(0.7)translateY(-25vh)
       @media screen and (max-width: $tablet)
-        display: flex
-        align-items: center
-        position: relative
-        min-height: 50vh
-        .heroimage1
-          position: relative
-          width: 100%     
-          transform: translate(-15vw, -10vh) scale(1.5)    
+        min-height: 25vh
+      @media screen and (max-width: $phone)
+        min-height: 0vh
+      .heroimage1
+        width: 100%
+        height: auto
+        transform: scale(1.5)
+        transform-origin: right top
+        @media screen and (max-width: $tablet)
+          width: 70%
+          height: auto
+          transform: scale(2)
+          transform-origin: center right
+        @media screen and (max-width: $phone)
+          height: 25vh
+          width: auto
+          transform: scale(2)
+          transform-origin: center
   &.left
     flex-direction: row-reverse
     @media screen and (max-width: $tablet)

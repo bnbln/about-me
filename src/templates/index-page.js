@@ -100,6 +100,7 @@ export const IndexPageTemplate = ({
       <div className="content">
         <h1 style={{color: "#1E90FF"}}>Contact</h1>
         <form name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
           <TextField className="formField" label="Name" variant="filled" fullWidth />
           <TextField className="formField" label="E-Mail" variant="filled" fullWidth />
           <TextField className="formField" label="Message" variant="filled" multiline fullWidth />
