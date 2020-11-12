@@ -190,8 +190,20 @@ nav
     @media screen and (max-width: $tablet)
       flex-direction: column-reverse
 
-.formField
-  margin-bottom: 8px!important
+.contactForm
+  .wrapper
+    display: flex
+    flex-direction: row
+    margin-bottom: 8px
+    @media screen and (max-width: $phone)
+      flex-direction: column
+    .formField
+      flex: 1
+      &.first
+          margin-right: 8px
+          @media screen and (max-width: $phone)
+            margin-right: 0px
+            margin-bottom: 8px
 
 .connectimg
   width: auto

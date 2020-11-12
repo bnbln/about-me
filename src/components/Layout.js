@@ -7,6 +7,40 @@ import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
 import CookieConsent from "react-cookie-consent";
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    type: "dark",
+    primary: {
+      main: "#fff",
+      accent: "#fff",
+      color: "#fff"
+    },
+    secondary: {
+      main: "#ccc",
+    },
+  },
+  overrides: {
+    MuiInputLabel:{
+      root: {
+        color: "rgba(255, 255, 255, 0.54)"
+      },
+     
+    },
+    MuiInputBase: {
+      label: {
+        color: "rgba(255, 255, 255, 0.54)"
+
+      },
+      input: {
+        //background: "#1c91ff1c",
+        color: "#fff",
+        border: "#fff"
+      },
+    },
+  },
+});
 
 
 // function setCookies() {
@@ -77,9 +111,11 @@ const TemplateWrapper = ({ children }) => {
         {/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-7G7CKXKSY1"></script> */}
 
       </Helmet>
+      <ThemeProvider theme={theme}>
       <Navbar />
       <div>{children}</div>
       <Footer />
+      </ThemeProvider>
       <CookieConsent
           location="bottom"
           buttonText="Accept"
