@@ -4,8 +4,8 @@ title: Don't be
 subheading: Boring
 image: /img/mainillustration.png
 mainpitch:
-  title: What i do
-  description: >
+  title: ghbhbhbnijnjnij
+  description: |
     UX/UI Designer, Javascript Developer & Motion Designer
   skills:
     - Ux/Ui Design
