@@ -1,8 +1,11 @@
 ---
+heading: About me
+connectsubtitle: Shy
 templateKey: index-page
-title: Don't be
+image: /img/headerimage.jpg
 subheading: Boring
-image: /img/mainillustration.png
+connectcta: Leave a message
+title: Don't be
 mainpitch:
   title: ghbhbhbnijnjnij
   description: |
@@ -12,22 +15,6 @@ mainpitch:
     - Javascript Development
     - Motion Design
     - Learn about Tech
-connecttitle: Don't be
-connectsubtitle: Shy
-connectimage: /img/saly-13.png
-connectcta: Leave a message
-social:
-  links:
-    - title: LinkedIn
-      url: https://www.linkedin.com/in/benedikt-schnupp-928112116/
-      image: /img/iconmonstr-linkedin-5.svg
-    - title: Instagram
-      url: https://instagram.com/bnbln
-      image: /img/instagram.svg
-    - title: Github
-      url: https://www.github.com/bnbln
-      image: /img/github-icon.svg
-heading: About me
 name: Benedikt Schnupp
 intro:
   blurbs:
@@ -63,6 +50,23 @@ intro:
     Hey there, 
 
     my name is Bene and I am a Motion Designer from Berlin, Germany. In 2019 I’ve graduated as Communication Designer and Media Manager. During my studies I was always curious to learn new things and got into Web Developement. My biggest strength is Communication: I love getting to know new people and get inspired by art, tech and journalism.
+social:
+  links:
+    - title: LinkedIn
+      url: https://www.linkedin.com/in/benedikt-schnupp-928112116/
+      image: /img/iconmonstr-linkedin-5.svg
+    - title: Instagram
+      url: https://instagram.com/bnbln
+      image: /img/instagram.svg
+    - title: Github
+      url: https://www.github.com/bnbln
+      image: /img/github-icon.svg
+connecttitle: Don't be
+connectimage: /img/saly-13.png
+description: >-
+  Hey there,
+
+  my name is Bene and I am a Motion Designer from Berlin, Germany. In 2019 I’ve graduated as Communication Designer and Media Manager. During my studies I was always curious to learn new things and got into Web Developement. My biggest strength is Communication: I love getting to know new people and get inspired by art, tech and journalism.
 main:
   heading: Great coffee with no compromises
   description: >
@@ -79,8 +83,4 @@ main:
   image3:
     alt: Coffee beans
     image: /img/products-grid1.jpg
-description: >-
-  Hey there,
-
-  my name is Bene and I am a Motion Designer from Berlin, Germany. In 2019 I’ve graduated as Communication Designer and Media Manager. During my studies I was always curious to learn new things and got into Web Developement. My biggest strength is Communication: I love getting to know new people and get inspired by art, tech and journalism.
 ---
